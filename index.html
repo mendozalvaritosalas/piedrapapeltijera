@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const piedra = 1, papel = 2, tijera = 3;
+        let usuario = 0, computadora = 0;
+
+        function computerPlay() {
+            return Math.floor((Math.random() * 3) + 1);
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection != computerSelection) {
+                if (playerSelection == 1 && computerSelection != 2) {
+                    usuario++;
+                    return "Gana el Jugador con: " + str(playerSelection);
+                }
+                else {
+                    computadora++;
+                    return "Gana la Computadora con: " + str(computerSelection);
+                }
+                if (playerSelection == 2 && computerSelection != 3) {
+                    usuario++;
+                    return "Gana el Jugador con: " + str(playerSelection);
+                }
+                else {
+                    computadora++;
+                    return "Gana la Computadora con: " + str(computerSelection);
+                }
+                if (playerSelection == 3 && computerSelection != 1) {
+                    usuario++;
+                    return "Gana el Jugador con: " + str(playerSelection);
+                }
+                else {
+                    computadora++;
+                    return "Gana la Computadora con: " + str(computerSelection);
+                }
+            }
+            else {
+                return "Empate Eligieron ambos :" + str(playerSelection);
+            }
+        }
+
+        function str(valor) {
+            switch (valor) {
+                case 1:
+                    return "Piedra";
+                    break;
+                case 2:
+                    return "Papel"
+                    break;
+                case 3:
+                    return "Tijera"
+                    break;
+            }
+        }
+
+        function jugar() {
+            usuario = 0, computadora = 0;
+            for (let index = 0; index < 5; index++) {
+                playRound(prompt("Elija una Opcion \n 1 Piedra \n 2 Papel \n 3 Tijera"), computerPlay());
+            }
+            if (usuario == computadora) {
+                console.log("Empataron a" + usuario);
+            }
+            else {
+                if (usuario > computadora) {
+                    console.log("El jugador gano " + usuario + " a " + computadora);
+                }
+                else {
+                    console.log("La computadora gano " + computadora + " a " + usuario);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
